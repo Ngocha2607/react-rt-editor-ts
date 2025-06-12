@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  --tt-toolbar-height: 44px;
+  --tt-theme-text: var(--tt-gray-light-900);
+
+  .dark & {
+    --tt-theme-text: var(--tt-gray-dark-900);
+  }
+}
+
+.tiptap.ProseMirror {
+  font-family: 'Roboto', sans-serif;
+}
+
+.content-wrapper {
+  height: calc(100% - var(--tt-toolbar-height));
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: block;
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--tt-scrollbar-color);
+    border-radius: 4px;
+  }
+
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--tt-scrollbar-color) transparent;
+}
+
+.simple-editor-content {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  // overflow: auto;
+  min-height: 20rem; // Tailwind min-h-80 = 80 * 0.25rem
+  // max-height: 30rem; // Tailwind max-h-120 = 120 * 0.25rem
+}
+
+.simple-editor-content .tiptap.ProseMirror {
+  padding: 2rem 0.75rem;
+}
+
+@media screen and (max-width: 480px) {
+  .simple-editor-content .tiptap.ProseMirror {
+    padding: 1rem 1.5rem;
+  }
+}
+.sapp-editor-container {
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--tt-gray-dark-800); // border-gray-6 (Tailwind gray-300)
+  padding: 0 0.5rem;
+  overflow: auto;
+  resize: both;
+}

@@ -1,9 +1,11 @@
 {
   "name": "react-rt-editor-ts",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "ci": "npm run build",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,44 @@
     "url": "https://github.com/Ngocha2607/react-rt-editor-ts/issues"
   },
   "homepage": "https://github.com/Ngocha2607/react-rt-editor-ts#readme",
-  "description": ""
+  "description": "",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "prettier": "^3.5.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.27.12",
+    "@tippyjs/react": "^4.2.6",
+    "@tiptap/extension-color": "^2.14.0",
+    "@tiptap/extension-font-family": "^2.14.0",
+    "@tiptap/extension-highlight": "^2.14.0",
+    "@tiptap/extension-image": "^2.14.0",
+    "@tiptap/extension-link": "^2.14.0",
+    "@tiptap/extension-placeholder": "^2.14.0",
+    "@tiptap/extension-subscript": "^2.14.0",
+    "@tiptap/extension-superscript": "^2.14.0",
+    "@tiptap/extension-table": "^2.14.0",
+    "@tiptap/extension-table-cell": "^2.14.0",
+    "@tiptap/extension-table-header": "^2.14.0",
+    "@tiptap/extension-table-row": "^2.14.0",
+    "@tiptap/extension-task-item": "^2.14.0",
+    "@tiptap/extension-task-list": "^2.14.0",
+    "@tiptap/extension-text-align": "^2.14.0",
+    "@tiptap/extension-text-style": "^2.14.0",
+    "@tiptap/extension-typography": "^2.14.0",
+    "@tiptap/extension-underline": "^2.14.0",
+    "@tiptap/pm": "^2.14.0",
+    "@tiptap/react": "^2.14.0",
+    "@tiptap/starter-kit": "^2.14.0",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5"
+  }
 }

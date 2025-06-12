@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    /* Base Options: */
+    "target": "es2020",
+    "module": "preserve",
+    "declaration": true,
+    "declarationDir": "dist",
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "jsx": "react",
+    "isolatedModules": true,
+    "strict": true,
+    "noEmit": true
+  },
+  "include": ["src"]
+}

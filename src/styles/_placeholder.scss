@@ -1,0 +1,19 @@
+.tiptap.ProseMirror {
+  /* Style cho placeholder khi editor hoàn toàn trống */
+  > p.is-editor-empty::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: #adb5bd;
+    pointer-events: none;
+    height: 0;
+  }
+  /* Style để đảm bảo placeholder không hiển thị khi có nội dung */
+  &:not(.is-editor-empty)::before {
+    content: none;
+  }
+  /* Đặt z-index thấp hơn để placeholder ở dưới con trỏ văn bản */
+  &.is-editor-empty::before {
+    z-index: -1;
+    position: relative;
+  }
+}

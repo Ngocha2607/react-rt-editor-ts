@@ -1,0 +1,136 @@
+.tiptap.ProseMirror {
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  > img:not([data-type='emoji'] img) {
+    margin: 0.75rem 0;
+    outline: 0.125rem solid transparent;
+    border-radius: var(--tt-radius-xs, 0.25rem);
+  }
+
+  &.ProseMirror-focused
+    img:not([data-type='emoji'] img).ProseMirror-selectednode {
+    outline-color: var(--tt-brand-color-500);
+  }
+
+  // Thread image handling
+  .tiptap-thread:has(> img) {
+    margin: 2rem 0;
+
+    img {
+      outline: 0.125rem solid transparent;
+      border-radius: var(--tt-radius-xs, 0.25rem);
+    }
+  }
+
+  .tiptap-thread img {
+    margin: 0;
+  }
+}
+.ProseMirror .resizable-image-wrapper {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+}
+
+.ProseMirror .resizable-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.ProseMirror .resizable-image-container.selected {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.ProseMirror .resize-handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #007bff;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.ProseMirror .resize-handle:hover {
+  background-color: #0056b3;
+}
+/* Additional CSS cho Image Preview - thêm vào file CSS chính của bạn */
+
+.ProseMirror .resizable-image-container:hover img {
+  opacity: 0.95;
+}
+
+.ProseMirror .preview-icon {
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ProseMirror .resizable-image-container:hover .preview-icon,
+.ProseMirror .resizable-image-container.selected .preview-icon {
+  opacity: 1;
+}
+
+.ProseMirror .preview-icon:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Custom scrollbar cho modal preview nếu cần */
+.image-preview-overlay::-webkit-scrollbar {
+  display: none;
+}
+
+.image-preview-overlay {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animation cho modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-preview-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.image-preview-container img {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .image-preview-container {
+    max-width: 95vw !important;
+    max-height: 95vh !important;
+  }
+
+  .preview-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+  }
+}
