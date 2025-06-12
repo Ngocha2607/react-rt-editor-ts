@@ -1,11 +1,14 @@
 {
   "name": "react-rt-editor-ts",
   "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "ci": "npm run build",
-    "format": "prettier --write ."
+    "build": "tsup",
+    "ci": "npm run build && npm run format && npm run check-exports",
+    "format": "prettier --write .",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm"
   },
   "repository": {
     "type": "git",
@@ -31,11 +34,13 @@
   ],
   "type": "module",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
@@ -64,5 +69,12 @@
     "@tiptap/starter-kit": "^2.14.0",
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    }
   }
 }
